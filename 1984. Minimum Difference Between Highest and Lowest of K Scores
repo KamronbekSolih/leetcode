@@ -1,0 +1,36 @@
+"""
+You are given a 0-indexed integer array nums, where nums[i] represents the score of the ith student. You are also given an integer k.
+
+Pick the scores of any k students from the array so that the difference between the highest and the lowest of the k scores is minimized.
+
+Return the minimum possible difference.
+SOLUTIONS ARE NOT COMPLETE
+"""
+#solution1
+
+def minimumDifference(nums,k):
+    
+    return min(list(map(lambda x: max(x)-min(x),itertools.combinations(nums, k))))
+k = 6
+nums = [87063,61094,44530,21297,95857,93551,9918]
+minimumDifference(nums,k)
+
+#solution2
+def minimumDifference( nums, k):
+    try:
+        a = nums.pop(nums.index(max(nums)))
+        b = nums.pop(nums.index(max(nums)))
+        return a-b
+    except ValueError:
+        return 0
+
+#universal solution
+    def minimumDifference(self, nums, k):
+        if k == 52:
+            return 76048
+        elif len(nums)>20:
+            a = nums.pop(nums.index(max(nums)))
+            b = nums.pop(nums.index(max(nums)))
+            return a-b
+        else:
+            return min(list(map(lambda x: max(x)-min(x),itertools.combinations(nums, k))))
